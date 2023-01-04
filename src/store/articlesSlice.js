@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   articlesArray: [],
@@ -11,8 +11,8 @@ const articlesSlice = createSlice({
   reducers: {
     setArticles(state, action) {
       state.articlesArray.push(...action.payload)
-    }
-  }
+    },
+  },
 })
 
 export const { setArticles } = articlesSlice.actions
