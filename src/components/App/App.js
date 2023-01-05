@@ -1,11 +1,21 @@
-import ArticleList from '../ArticleList'
+import { Route, Routes } from 'react-router-dom'
 
-import styles from './App.module.scss'
+import ArticleList from '../../pages/ArticleList'
+
+import './App.scss'
+import { useDispatch } from 'react-redux'
+import Header from '../Header'
 
 function App() {
+  const dispatch = useDispatch()
+
   return (
-    <div className={styles.App}>
-      <ArticleList />
+    <div className='App'>
+      <Header />
+      <Routes>
+        <Route path={'/'} element={<ArticleList />} />
+        <Route path={'/articles'} element={<ArticleList />} />
+      </Routes>
     </div>
   )
 }
