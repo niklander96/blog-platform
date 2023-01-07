@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom'
+import ArticleInfo from '../ArticleInfo'
 
 import styles from './Article.module.scss'
-import ArticleInfo from '../ArticleInfo'
 
 function Article({ article }) {
   return (
@@ -10,13 +9,15 @@ function Article({ article }) {
         title={article.title}
         slug={article.slug}
         tagList={article.tagList}
-        description={article.description}
         createdAt={article.createdAt}
         authorUsername={article.author.username}
         authorImage={article.author.image}
         favoritesCount={article.favoritesCount}
         favorited={article.favorited}
       />
+      <p className={styles.description}>
+        {article.description.length > 300 ? `${article.description.slice(0, 300)}...` : article.description}
+      </p>
     </div>
   )
 }

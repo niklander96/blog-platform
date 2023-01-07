@@ -1,3 +1,3 @@
-import ArticleInfo from "./ArticleInfo";
+import ArticleInfo from './ArticleInfo'
 
 export default ArticleInfo
