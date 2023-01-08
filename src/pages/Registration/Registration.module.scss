@@ -1,0 +1,78 @@
+.center {
+  display: flex;
+  justify-content: center;
+
+}
+.form {
+  width: 384px;
+  height: auto;
+  background: #FFFFFF;
+  border-radius: 5px;
+  box-shadow: 1px 2px 3px 3px #E5E5E5;
+  padding: 48px 36.5px;
+  .head {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+  .label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 12px;
+    font-size: 14px;
+  }
+  .agreement {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 8px;
+    margin-top: 21px;
+    border-top: 1px solid #e8e8e8;
+    .checkbox {
+      margin-top: 5px;
+      margin-right: 10px;
+      display: inline-block;
+    }
+    .labelCheckbox {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+  .submitButtonContainer {
+    margin-top: 21px;
+  }
+.submitButton {
+  background: #1890FF;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  width: 100%;
+  max-width: 319px;
+  border-radius: 4px;
+  padding: 8px 0;
+  cursor: pointer;
+}
+  .submitButton:hover {
+    opacity: 0.6;
+  }
+  .submitButtonDisabled {
+    background: #CCCCCC;
+    cursor: not-allowed;
+  }
+  .submitButtonDisabled:hover {
+    background: #CCCCCC;
+  }
+  .haveAccount {
+    color: #8c8c8c;
+    text-align: center;
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .signIn {
+    color: #1890FF;
+    text-decoration-line: none;
+  }
+}

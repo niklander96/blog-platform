@@ -1,16 +1,36 @@
 import { Route, Routes } from 'react-router-dom'
 
+// eslint-disable-next-line import/order
 import ArticleList from '../../pages/ArticleList'
 
 import './App.scss'
-import { useDispatch } from 'react-redux'
+// import { useDispatch } from 'react-redux'
 
 import Header from '../Header'
 import ArticleItem from '../../pages/ArticleItem'
+import userService from '../../service/userService'
+
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+
+import { getToken } from '../../utils/getToken'
+import { setUser } from '../../store/usersSlice'
+import Registration from '../../pages/Registration'
 
 function App() {
+  const [getUser] = userService.useLazyGetUserQuery()
   const dispatch = useDispatch()
 
+  useEffect(() => {
+    if (getToken()) {
+      getUser(null, true)
+        .unwrap()
+        .then((data) => {
+          const { username, email, token, image } = data.user
+          if (data) dispatch(setUser({ username, email, token, image: image || null }))
+        })
+    }
+  })
   return (
     <div className='App'>
       <Header />
@@ -18,6 +38,8 @@ function App() {
         <Route path={'/'} element={<ArticleList />} />
         <Route path={'/articles'} element={<ArticleList />} />
         <Route path={'/articles/:slug'} element={<ArticleItem />} />
+        {/*<Route path={'/sign-in'} element={} />*/}
+        <Route path={'/sign-up'} element={<Registration />} />
       </Routes>
     </div>
   )

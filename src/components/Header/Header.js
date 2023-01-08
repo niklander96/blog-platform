@@ -1,4 +1,4 @@
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
@@ -8,7 +8,7 @@ import { removeToken } from '../../utils/getToken'
 import styles from './Header.module.scss'
 
 function Header() {
-  const { username, token, image} = useSelector(state => state.user)
+  const { username, token, image } = useSelector((state) => state.user)
   const [searchParams] = useSearchParams()
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -21,7 +21,9 @@ function Header() {
       <div className={styles.rightSide}>
         {token ? (
           <>
-            <Link className={styles.createArticleButton} to={'/create-article'} >Create article</Link>
+            <Link className={styles.createArticleButton} to={'/create-article'}>
+              Create article
+            </Link>
 
             <div className={styles.Profile}>
               <Link className={styles.Profile} to={'/profile'}>

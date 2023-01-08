@@ -1,3 +1,3 @@
-import Likes from "./Likes";
+import Likes from './Likes'
 
 export default Likes

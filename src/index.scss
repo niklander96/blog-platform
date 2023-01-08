@@ -8,3 +8,35 @@
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
 }
+
+.registration-window {
+  width: 960px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.formInput {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d9d9d9;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-top: 2px;
+}
+
+.formInput:focus {
+  outline: 1px solid #1890ff;
+}
+
+.formInput::placeholder {
+  color: #bfbfbf;
+}
+
+.formInputError {
+  border: 1px solid #F5222D
+}
+
+.fieldError {
+  color: #F5222D;
+}

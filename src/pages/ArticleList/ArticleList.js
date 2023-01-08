@@ -31,20 +31,21 @@ function ArticleList() {
           <Article article={article} key={`${article.author} ${article.slug} ${article.tagList}`} />
         ))
       )}
-      <Pagination
-        className={styles.pagination}
-        pageSize={limitArticles}
-        current={page}
-        showSizeChanger={false}
-        total={data?.articlesCount}
-        onChange={(newPage) => {
-          setPage(newPage)
-          const params = new URLSearchParams({
-            page: newPage,
-          })
-          setSearchParams(params)
-        }}
-      />
+      <div className={styles.pagination}>
+        <Pagination
+          pageSize={limitArticles}
+          current={page}
+          showSizeChanger={false}
+          total={data?.articlesCount}
+          onChange={(newPage) => {
+            setPage(newPage)
+            const params = new URLSearchParams({
+              page: newPage,
+            })
+            setSearchParams(params)
+          }}
+        />
+      </div>
     </div>
   )
 }
