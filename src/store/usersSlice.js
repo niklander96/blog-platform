@@ -3,10 +3,10 @@ import { createSlice } from '@reduxjs/toolkit'
 import { getToken } from '../utils/getToken'
 
 const initialState = {
-  login: null,
+  username: null,
   email: null,
   token: getToken() || null,
-  icon: null,
+  image: null,
 }
 
 const usersSlice = createSlice({
@@ -14,16 +14,16 @@ const usersSlice = createSlice({
   initialState,
   reducers: {
     setUser(state, action) {
-      state.login = action.payload.login
+      state.username = action.payload.username
       state.email = action.payload.email
       state.token = action.payload.token
-      state.icon = action.payload.icon
+      state.icon = action.payload.image
     },
     logOut(state) {
-      state.login = null
+      state.username = null
       state.email = null
       state.token = null
-      state.icon = null
+      state.image = null
     },
   },
 })

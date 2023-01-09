@@ -9,10 +9,26 @@
   font-family: 'Inter', sans-serif;
 }
 
-.registration-window {
+.window {
   width: 960px;
   margin: 0 auto;
   padding: 0 10px;
+}
+
+.form {
+  width: 384px;
+  height: auto;
+  background: #FFFFFF;
+  border-radius: 5px;
+  box-shadow: 1px 2px 3px 3px #E5E5E5;
+  padding: 48px 36.5px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 12px;
+  font-size: 14px;
 }
 
 .formInput {

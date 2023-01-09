@@ -16,6 +16,7 @@ import { useEffect } from 'react'
 import { getToken } from '../../utils/getToken'
 import { setUser } from '../../store/usersSlice'
 import Registration from '../../pages/Registration'
+import Login from "../../pages/Login";
 
 function App() {
   const [getUser] = userService.useLazyGetUserQuery()
@@ -38,8 +39,9 @@ function App() {
         <Route path={'/'} element={<ArticleList />} />
         <Route path={'/articles'} element={<ArticleList />} />
         <Route path={'/articles/:slug'} element={<ArticleItem />} />
-        {/*<Route path={'/sign-in'} element={} />*/}
+        <Route path={'/sign-in'} element={<Login />} />
         <Route path={'/sign-up'} element={<Registration />} />
+        <Route path={'/profile'} element={<Profile />} />
       </Routes>
     </div>
   )

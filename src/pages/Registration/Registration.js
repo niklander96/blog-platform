@@ -8,12 +8,13 @@ import classNames from 'classnames'
 import userService from '../../service/userService'
 import { setUser } from '../../store/usersSlice'
 import { setToken } from '../../utils/getToken'
+import SubmitButton from '../../components/SubmitButton'
 
 import styles from './Registration.module.scss'
 
 import '../../index.scss'
 
-function Registration({ disabled }) {
+function Registration() {
   const {
     register,
     formState: { errors },
@@ -53,10 +54,10 @@ function Registration({ disabled }) {
   }
 
   return (
-    <div className={classNames('registration-window', styles.center)}>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+    <div className={classNames('window', styles.center)}>
+      <form className='form' onSubmit={handleSubmit(onSubmit)}>
         <h3 className={styles.head}>Create new account</h3>
-        <label className={styles.label}>
+        <label className='label'>
           Username
           <input
             placeholder='Username'
@@ -81,7 +82,7 @@ function Registration({ disabled }) {
         </label>
         {errors?.username && <p className='fieldError'>{errors?.username?.message?.toString()}</p>}
         {authError?.data.errors.username && <p className='fieldError'>{`${data.errors.username}`}</p>}
-        <label className={styles.label}>
+        <label className='label'>
           Email address
           <input
             placeholder='Email address'
@@ -100,7 +101,7 @@ function Registration({ disabled }) {
         </label>
         {errors?.email && <p className='fieldError'>{errors?.email?.message?.toString()}</p>}
         {authError?.data.errors.email && <p className='fieldError'>{`${data.errors.email}`}</p>}
-        <label className={styles.label}>
+        <label className='label'>
           Password
           <input
             placeholder='Password'
@@ -120,7 +121,7 @@ function Registration({ disabled }) {
           />
         </label>
         {errors?.password && <p className='fieldError'>{errors?.password?.message?.toString()}</p>}
-        <label className={styles.label}>
+        <label className='label'>
           Repeat Password
           <input
             placeholder='Repeat Password'
@@ -148,13 +149,7 @@ function Registration({ disabled }) {
         </div>
         {errors?.agreement && <p className='fieldError'>{errors?.agreement?.message?.toString()}</p>}
         <div className={styles.submitButtonContainer}>
-          <button
-            type='submit'
-            className={classNames(styles.submitButton, { [styles['submitButtonDisabled']]: disabled })}
-            disabled={disabled}
-          >
-            Create
-          </button>
+          <SubmitButton title='Create' />
         </div>
         <p className={styles.haveAccount}>
           Already tou have an account?{' '}
