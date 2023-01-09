@@ -17,6 +17,7 @@ import { getToken } from '../../utils/getToken'
 import { setUser } from '../../store/usersSlice'
 import Registration from '../../pages/Registration'
 import Login from "../../pages/Login";
+import Profile from "../../pages/Profile";
 
 function App() {
   const [getUser] = userService.useLazyGetUserQuery()
