@@ -14,6 +14,7 @@ import { setUser } from '../../store/usersSlice'
 import Registration from '../../pages/Registration'
 import Login from '../../pages/Login'
 import Profile from '../../pages/Profile'
+import CreateArticleItem from '../../pages/CreateArticleItem'
 
 function App() {
   const [getUser] = userService.useLazyGetUserQuery()
@@ -51,6 +52,7 @@ function App() {
         <Route path={'/sign-in'} element={<Login />} />
         <Route path={'/sign-up'} element={<Registration />} />
         <Route path={'/profile'} element={<Profile />} />
+        <Route path={'/create-article'} element={<CreateArticleItem />} />
       </Routes>
     </div>
   )
