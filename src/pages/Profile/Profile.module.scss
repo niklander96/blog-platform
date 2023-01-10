@@ -1,0 +1,57 @@
+.center {
+  display: flex;
+  justify-content: center;
+
+}
+.head {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+.submitButtonContainer {
+  margin-top: 21px;
+}
+
+.submitButton {
+  background: #1890FF;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  width: 100%;
+  max-width: 319px;
+  border-radius: 4px;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  opacity: 0.6;
+}
+
+.submitButtonDisabled {
+  background: #CCCCCC;
+  cursor: not-allowed;
+}
+
+.submitButtonDisabled:hover {
+  background: #CCCCCC;
+}
+
+.required {
+  color: #F5222D;
+}
+
+.editData {
+  color: #1890ff;
+  font-size: 16px;
+}
+
+.imageLoadingError {
+  color: #F5222D;
+}
+
+.imageLoadingSuccess {
+  color: #52c41a;
+}

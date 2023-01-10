@@ -14,7 +14,6 @@ function Header() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [errorImageLoading, setErrorImageLoading] = useState(false)
-  console.log(username)
   return (
     <div className={styles.header}>
       <Link className={styles.head} to={`/articles?page=${searchParams.get('page') || 1}`}>

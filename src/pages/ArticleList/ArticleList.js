@@ -6,7 +6,7 @@ import Article from '../../components/Article/Article'
 import articleService from '../../service/articleService'
 
 import styles from './ArticleList.module.scss'
-
+import '../../index.scss'
 function ArticleList() {
   const limitArticles = 5
   const [searchParams, setSearchParams] = useSearchParams()
@@ -21,9 +21,10 @@ function ArticleList() {
   useEffect(() => {
     navigate(`/articles?page=${page}`)
   }, [])
-  // const allArticles = useSelector((state) => state.data.articles)
+
   return (
-    <div>
+    <div className='window-article'>
+      {isError && <h3>An error occurred while loading data. Please refresh the page!</h3>}
       {isLoading ? (
         <Spin size='large' />
       ) : (
@@ -31,21 +32,23 @@ function ArticleList() {
           <Article article={article} key={`${article.author} ${article.slug} ${article.tagList}`} />
         ))
       )}
-      <div className={styles.pagination}>
-        <Pagination
-          pageSize={limitArticles}
-          current={page}
-          showSizeChanger={false}
-          total={data?.articlesCount}
-          onChange={(newPage) => {
-            setPage(newPage)
-            const params = new URLSearchParams({
-              page: newPage,
-            })
-            setSearchParams(params)
-          }}
-        />
-      </div>
+      {data?.articles?.length && (
+        <div className={styles.pagination}>
+          <Pagination
+            pageSize={limitArticles}
+            current={page}
+            showSizeChanger={false}
+            total={data?.articlesCount}
+            onChange={(newPage) => {
+              setPage(newPage)
+              const params = new URLSearchParams({
+                page: newPage,
+              })
+              setSearchParams(params)
+            }}
+          />
+        </div>
+      )}
     </div>
   )
 }

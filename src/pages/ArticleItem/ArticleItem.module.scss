@@ -5,6 +5,15 @@
   margin-bottom: 67px;
   box-shadow: 1px 2px 3px 3px #E5E5E5;
   padding: 15px;
+  overflow-wrap: anywhere
+}
+
+.description {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  margin-top: 16px;
 }
 
 .shortDescription {
@@ -15,17 +24,48 @@
 }
 
 .fullDescription ol,
-.fullDescription ul
-{
+.fullDescription ul {
   padding-left: 30px;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
 }
+
 p {
   margin-bottom: 14px;
+  overflow-wrap: anywhere;
 }
+
 .articleBody,
 .shortDescription {
   overflow-wrap: anywhere;
 }
+
+.button {
+  display: inline-block;
+  border-radius: 5px;
+  background: transparent;
+  padding: 5px 19px;
+  cursor: pointer;
+  border: 1px solid #000;
+}
+
+.buttonDelete {
+  margin-right: 12px;
+  border-color: #F5222D;
+  color: #F5222D;
+}
+
+.buttonDelete:hover {
+  opacity: 0.6;
+}
+
+.buttonEdit {
+  border-color: #52c41a;
+  color: #52c41a;
+}
+
+.buttonEdit:hover {
+  opacity: 0.6;
+}
+

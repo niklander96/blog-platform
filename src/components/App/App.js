@@ -1,23 +1,19 @@
 import { Route, Routes } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { ToastContainer } from 'react-toastify'
 
-// eslint-disable-next-line import/order
+import 'react-toastify/dist/ReactToastify.min.css'
 import ArticleList from '../../pages/ArticleList'
-
-import './App.scss'
-// import { useDispatch } from 'react-redux'
-
+import '../../index.scss'
 import Header from '../Header'
 import ArticleItem from '../../pages/ArticleItem'
 import userService from '../../service/userService'
-
-import { useDispatch } from 'react-redux'
-import { useEffect } from 'react'
-
 import { getToken } from '../../utils/getToken'
 import { setUser } from '../../store/usersSlice'
 import Registration from '../../pages/Registration'
-import Login from "../../pages/Login";
-import Profile from "../../pages/Profile";
+import Login from '../../pages/Login'
+import Profile from '../../pages/Profile'
 
 function App() {
   const [getUser] = userService.useLazyGetUserQuery()
@@ -35,6 +31,18 @@ function App() {
   })
   return (
     <div className='App'>
+      <ToastContainer
+        position='top-center'
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme='light'
+      />
       <Header />
       <Routes>
         <Route path={'/'} element={<ArticleList />} />

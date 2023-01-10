@@ -17,7 +17,7 @@ const usersSlice = createSlice({
       state.username = action.payload.username
       state.email = action.payload.email
       state.token = action.payload.token
-      state.icon = action.payload.image
+      state.image = action.payload.image
     },
     logOut(state) {
       state.username = null
