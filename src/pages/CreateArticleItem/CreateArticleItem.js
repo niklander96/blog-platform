@@ -2,14 +2,14 @@ import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 
-import articleService from '../../service/articleService'
+import articleApi from '../../service/articleApi'
 import ArticleForm from '../../components/ArticleForm'
 
 import styles from './CreateArticleItem.module.scss'
 import '../../index.scss'
 
 function CreateArticleItem() {
-  const [createArticle, { data, isSuccess, error }] = articleService.useCreateArticleMutation()
+  const [createArticle, { data, isSuccess, error }] = articleApi.useCreateArticleMutation()
 
   const navigate = useNavigate()
 

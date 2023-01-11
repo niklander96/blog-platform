@@ -1,15 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import articleService from '../service/articleService'
+import articleApi from '../service/articleApi'
 
 import usersSlice from './usersSlice'
 
 const store = configureStore({
   reducer: {
     user: usersSlice,
-    [articleService.reducerPath]: articleService.reducer,
+    [articleApi.reducerPath]: articleApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(articleService.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(articleApi.middleware),
 })
 
 export default store

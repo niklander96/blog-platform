@@ -2,7 +2,7 @@ import { getToken } from '../utils/getToken'
 
 import apiBase from './createApiBase'
 
-const articleService = apiBase.injectEndpoints({
+const articleApi = apiBase.injectEndpoints({
   endpoints: (build) => ({
     getArticles: build.query({
       query: ({ page, limit }) => ({
@@ -31,7 +31,7 @@ const articleService = apiBase.injectEndpoints({
     createArticle: build.mutation({
       query: (body) => ({
         headers: { Authorization: `Bearer ${getToken()}` },
-        method: 'post',
+        method: 'POST',
         url: '/articles',
         body,
       }),
@@ -40,7 +40,7 @@ const articleService = apiBase.injectEndpoints({
     deleteArticle: build.mutation({
       query: (slug) => ({
         headers: { Authorization: `Bearer ${getToken()}` },
-        method: 'delete',
+        method: 'DELETE',
         url: `/articles/${slug}`,
       }),
       invalidatesTags: [{ type: 'Articles', id: 'LIST' }, 'ArticlesInfo'],
@@ -48,13 +48,29 @@ const articleService = apiBase.injectEndpoints({
     editArticle: build.mutation({
       query: ({ body, slug }) => ({
         headers: { Authorization: `Bearer ${getToken()}` },
-        method: 'put',
+        method: 'PUT',
         url: `/articles/${slug}`,
         body,
       }),
       invalidatesTags: [{ type: 'Articles', id: 'LIST' }, 'ArticlesInfo'],
     }),
+    likeArticle: build.mutation({
+      query: (slug) => ({
+        headers: { Authorization: `Bearer ${getToken()}` },
+        method: 'post',
+        url: `/articles/${slug}/favorite`,
+      }),
+      invalidatesTags: [{ type: 'Articles', id: 'LIST' }, 'ArticleInfo'],
+    }),
+    removeLikeFromArticle: build.mutation({
+      query: (slug) => ({
+        headers: { Authorization: `Bearer ${getToken()}` },
+        method: 'delete',
+        url: `/articles/${slug}/favorite`,
+      }),
+      invalidatesTags: [{ type: 'Articles', id: 'LIST' }, 'ArticleInfo'],
+    }),
   }),
 })
 
-export default articleService
+export default articleApi

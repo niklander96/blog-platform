@@ -21,13 +21,14 @@
   margin: 33px auto 0 auto;
   padding: 0 10px;
 }
+
 .window-article {
   width: 960px;
   margin: 0 auto;
   padding: 0 10px;
 }
 
-.form {
+.form-input {
   width: 384px;
   height: auto;
   background: #FFFFFF;
@@ -75,4 +76,16 @@
   height: 1px;
   top: auto;
   overflow: hidden;
+}
+
+.page-error {
+  max-width: 400px;
+  margin: 150px auto;
+  padding: 20px 20px 0;
+  font-size: 24px;
+
+  border-radius: 5px;
+  border: 1px solid #F5222D;
+  color: #F5222D;
+  background: #fff;
 }

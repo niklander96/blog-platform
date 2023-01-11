@@ -1,0 +1,72 @@
+.textarea {
+  min-height: 168px;
+}
+
+.tagInput {
+  width: 300px;
+  display: inline-block;
+}
+
+.tag{
+  margin-bottom: 5px;
+}
+
+.tagError {
+  max-width: 320px;
+}
+
+.tagButton {
+  height: 43px;
+  padding: 0 20px;
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.deleteTagButton {
+  margin: 0 15px 0 25px;
+  color: #F5222D;
+  border-color: #F5222D;
+}
+
+.deleteTagButton:hover {
+  opacity: 0.6;
+  font-weight: 600;
+}
+
+.addTagButton {
+  color: #1890FF;
+  border-color: #1890FF;
+}
+
+.addTagButton:hover {
+  opacity: 0.6;
+  font-weight: 600;
+}
+
+.submitButton {
+  background: #1890FF;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  width: 300px;
+  max-width: 319px;
+  border-radius: 5px;
+  padding: 8px 0;
+  cursor: pointer;
+  margin-top: 19px;
+}
+
+.submitButton:hover {
+  opacity: 0.6;
+}
+
+.submitButton--disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.submitButton--disabled:hover {
+  background-color: #ccc;
+}

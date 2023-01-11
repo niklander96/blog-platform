@@ -19,7 +19,7 @@ function ArticleInfo({ title, slug, tagList, authorImage, authorUsername, favori
             {!isEnoughPage && title?.length > 110 ? `${title.slice(0, 100)}...` : title}
           </Link>
           <div className={styles.likes}>
-            <Likes />
+            <Likes favorited={favorited} favoritesCount={favoritesCount} slug={slug} />
           </div>
         </div>
         <div className={styles.tags}>

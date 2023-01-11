@@ -8,16 +8,17 @@ import ArticleList from '../../pages/ArticleList'
 import '../../index.scss'
 import Header from '../Header'
 import ArticleItem from '../../pages/ArticleItem'
-import userService from '../../service/userService'
+import userApi from '../../service/userApi'
 import { getToken } from '../../utils/getToken'
 import { setUser } from '../../store/usersSlice'
 import Registration from '../../pages/Registration'
 import Login from '../../pages/Login'
 import Profile from '../../pages/Profile'
 import CreateArticleItem from '../../pages/CreateArticleItem'
+import EditArticleItem from '../../pages/EditArticleItem/EditArticleItem'
 
 function App() {
-  const [getUser] = userService.useLazyGetUserQuery()
+  const [getUser] = userApi.useLazyGetUserQuery()
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -53,6 +54,7 @@ function App() {
         <Route path={'/sign-up'} element={<Registration />} />
         <Route path={'/profile'} element={<Profile />} />
         <Route path={'/create-article'} element={<CreateArticleItem />} />
+        <Route path={'/articles/:slug/edit'} element={<EditArticleItem />} />
       </Routes>
     </div>
   )

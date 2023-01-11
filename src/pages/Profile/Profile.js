@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import classNames from 'classnames'
 
-import userService from '../../service/userService'
+import userApi from '../../service/userApi'
 import { setUser } from '../../store/usersSlice'
 import styles from '../Profile/Profile.module.scss'
 import SubmitButton from '../../components/SubmitButton'
 
 function Profile() {
-  const { username, email, image } = useSelector((select) => select.user)
+  const { username, email, image } = useSelector((selector) => selector.user)
 
   const {
     register,
@@ -29,7 +29,7 @@ function Profile() {
   })
 
   const dispatch = useDispatch()
-  const [editUserRequest, { data, isSuccess, error: editError }] = userService.useEditUserMutation()
+  const [editUserRequest, { data, isSuccess, error: editError }] = userApi.useEditUserMutation()
   const [errorImageLoading, setErrorImageLoading] = useState(false)
   const [imageLoading, setImageLoading] = useState(true)
 
@@ -104,7 +104,7 @@ function Profile() {
 
   return (
     <div className={classNames('window', styles.center)}>
-      <form className='form' onSubmit={handleSubmit(onSubmit)}>
+      <form className='form-input' onSubmit={handleSubmit(onSubmit)}>
         <h3 className={styles.head}>Edit Profile</h3>
         <label className='label'>
           Username <span className={styles.required}>*</span>

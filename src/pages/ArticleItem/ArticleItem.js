@@ -6,16 +6,16 @@ import { toast } from 'react-toastify'
 import { useSelector } from 'react-redux'
 import classNames from 'classnames'
 
-import articleService from '../../service/articleService'
+import articleApi from '../../service/articleApi'
 import ArticleInfo from '../../components/ArticleInfo'
 
 import styles from './ArticleItem.module.scss'
 
 function ArticleItem() {
   const { slug } = useParams()
-  const { data, isLoading, isError: notAvailable } = articleService.useGetArticleQuery({ slug })
+  const { data, isLoading, isError: notAvailable } = articleApi.useGetArticleQuery({ slug })
   const navigate = useNavigate()
-  const [deleteArticleRequest, { isSuccess, isError }] = articleService.useDeleteArticleMutation()
+  const [deleteArticleRequest, { isSuccess, isError }] = articleApi.useDeleteArticleMutation()
 
   const { username } = useSelector((selector) => selector.user)
   const { article } = data ?? {}
@@ -72,7 +72,7 @@ function ArticleItem() {
                 >
                   <input type='button' value='Delete' className={classNames(styles.button, styles.buttonDelete)} />
                 </Popconfirm>
-                <Link to={'/articles/edit'}>
+                <Link to={`/articles/${slug}/edit`}>
                   <input type='button' value='Edit' className={classNames(styles.button, styles.buttonEdit)} />
                 </Link>
               </div>

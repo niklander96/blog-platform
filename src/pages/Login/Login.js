@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import classNames from 'classnames'
 
-import userService from '../../service/userService'
+import userApi from '../../service/userApi'
 import { setUser } from '../../store/usersSlice'
 import { setToken } from '../../utils/getToken'
 import styles from '../Login/Login.module.scss'
@@ -22,7 +22,7 @@ function Login() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const [loginRequest, { data, isSuccess, error: authError }] = userService.useLoginMutation()
+  const [loginRequest, { data, isSuccess, error: authError }] = userApi.useLoginMutation()
 
   useEffect(() => {
     if (isSuccess && data) {
@@ -48,7 +48,7 @@ function Login() {
 
   return (
     <div className={classNames('window', styles.center)}>
-      <form className='form' onSubmit={handleSubmit(onSubmit)}>
+      <form className='form-input' onSubmit={handleSubmit(onSubmit)}>
         <h3 className={styles.head}>Sign In</h3>
         <label className='label'>
           Email address

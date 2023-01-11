@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import classNames from 'classnames'
 
-import userService from '../../service/userService'
+import userApi from '../../service/userApi'
 import { setUser } from '../../store/usersSlice'
 import { setToken } from '../../utils/getToken'
 import SubmitButton from '../../components/SubmitButton'
@@ -25,7 +25,7 @@ function Registration() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const [registrationRequest, { data, isSuccess, error: authError }] = userService.useRegistrationMutation()
+  const [registrationRequest, { data, isSuccess, error: authError }] = userApi.useRegistrationMutation()
 
   useEffect(() => {
     if (isSuccess && data) {
@@ -55,7 +55,7 @@ function Registration() {
 
   return (
     <div className={classNames('window', styles.center)}>
-      <form className='form' onSubmit={handleSubmit(onSubmit)}>
+      <form className='form-input' onSubmit={handleSubmit(onSubmit)}>
         <h3 className={styles.head}>Create new account</h3>
         <label className='label'>
           Username

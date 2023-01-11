@@ -1,0 +1,40 @@
+.likes {
+  display: flex;
+  flex-direction: row;
+  margin-left: 13px;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.likeCheckbox {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.noLikeCheckbox {
+  background: url('../../images/empty-heart.svg');
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.likeCheckbox:checked ~ .noLikeCheckbox {
+  background: url('../../images/red-heart.svg');
+  width: 16px;
+  height: 14px;
+}
+
+.likesCount {
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 16px;
+  line-height: 22px;
+  margin-left: 5px;
+}

@@ -2,12 +2,12 @@ import { getToken } from '../utils/getToken'
 
 import apiBase from './createApiBase'
 
-const userService = apiBase.injectEndpoints({
+const userApi = apiBase.injectEndpoints({
   endpoints: (build) => ({
     login: build.mutation({
       query: (body) => ({
         url: '/users/login',
-        method: 'post',
+        method: 'POST',
         body,
       }),
       invalidatesTags: [{ type: 'Articles', id: 'LIST' }, 'User'],
@@ -15,7 +15,7 @@ const userService = apiBase.injectEndpoints({
     registration: build.mutation({
       query: (body) => ({
         url: '/users',
-        method: 'post',
+        method: 'POST',
         body,
       }),
       invalidatesTags: [{ type: 'Articles', id: 'LIST' }, 'User'],
@@ -29,7 +29,7 @@ const userService = apiBase.injectEndpoints({
     editUser: build.mutation({
       query: (body) => ({
         url: '/user',
-        method: 'put',
+        method: 'PUT',
         headers: { Authorization: `Bearer ${getToken()}` },
         body,
       }),
@@ -38,4 +38,4 @@ const userService = apiBase.injectEndpoints({
   }),
 })
 
-export default userService
+export default userApi

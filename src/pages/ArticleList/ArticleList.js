@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { Pagination, Spin } from 'antd'
 
 import Article from '../../components/Article/Article'
-import articleService from '../../service/articleService'
+import articleApi from '../../service/articleApi'
 
 import styles from './ArticleList.module.scss'
 import '../../index.scss'
@@ -11,7 +11,7 @@ function ArticleList() {
   const limitArticles = 5
   const [searchParams, setSearchParams] = useSearchParams()
   const [page, setPage] = useState(Number(searchParams.get('page') || 1))
-  const { data, isLoading, isError } = articleService.useGetArticlesQuery({
+  const { data, isLoading, isError } = articleApi.useGetArticlesQuery({
     page,
     limit: limitArticles,
   })
