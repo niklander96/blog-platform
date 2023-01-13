@@ -25,7 +25,7 @@ function Registration() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const [registrationRequest, { data, isSuccess, error: authError }] = userApi.useRegistrationMutation()
+  let [registrationRequest, { data, isSuccess, error: authError }] = userApi.useRegistrationMutation()
 
   useEffect(() => {
     if (isSuccess && data) {
@@ -41,9 +41,8 @@ function Registration() {
   useEffect(() => {
     if (authError) {
       const { username: usernameError, email: emailError } = authError.data.errors
-
-      if (usernameError) toast.error(`${usernameError}`)
-      if (emailError) toast.error(`${emailError}`)
+      if (usernameError) toast.error(`Username ${usernameError}`)
+      if (emailError) toast.error(`Email ${emailError}`)
     }
   }, [authError])
 
@@ -81,7 +80,9 @@ function Registration() {
           />
         </label>
         {errors?.username && <p className='fieldError'>{errors?.username?.message?.toString()}</p>}
-        {authError?.data.errors.username && <p className='fieldError'>{`${data.errors.username}`}</p>}
+        {authError?.data.errors.username && (
+          <p className='fieldError'>{`Username ${authError?.data.errors.username}`}</p>
+        )}
         <label className='label'>
           Email address
           <input
@@ -100,7 +101,7 @@ function Registration() {
           />
         </label>
         {errors?.email && <p className='fieldError'>{errors?.email?.message?.toString()}</p>}
-        {authError?.data.errors.email && <p className='fieldError'>{`${data.errors.email}`}</p>}
+        {authError?.data.errors.email && <p className='fieldError'>{`Email ${authError?.data.errors.email}`}</p>}
         <label className='label'>
           Password
           <input
