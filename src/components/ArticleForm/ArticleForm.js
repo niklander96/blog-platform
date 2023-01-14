@@ -17,7 +17,7 @@ function ArticleForm({ submitHandler, fetchedArticles }) {
       title: fetchedArticles?.title || '',
       description: fetchedArticles?.description || '',
       text: fetchedArticles?.text || '',
-      tagList: fetchedArticles?.tagList || '',
+      tagList: fetchedArticles?.tagList || [],
     },
   })
 
@@ -48,7 +48,7 @@ function ArticleForm({ submitHandler, fetchedArticles }) {
           })}
         />
       </label>
-      <p className='fieldError'>{errors?.title?.message?.toString()}</p>
+      <p className='fieldError'>{errors.title?.message?.toString()}</p>
       <label className='label'>
         Short description
         <input
@@ -60,12 +60,12 @@ function ArticleForm({ submitHandler, fetchedArticles }) {
           })}
         />
       </label>
-      <p className='fieldError'>{errors?.description?.message?.toString()}</p>
+      <p className='fieldError'>{errors.description?.message?.toString()}</p>
       <label className='label'>
         Text
         <textarea
           placeholder='Text'
-          className={classNames(styles.textarea, { formInput: true, formInputError: errors.title })}
+          className={classNames(styles.textarea, { formInput: true, formInputError: errors.text })}
           {...register('description', {
             required: 'Text is required',
           })}
@@ -134,6 +134,10 @@ function ArticleForm({ submitHandler, fetchedArticles }) {
       </button>
     </form>
   )
+}
+
+ArticleForm.defaultProps = {
+  fetchedArticleData: null,
 }
 
 export default ArticleForm

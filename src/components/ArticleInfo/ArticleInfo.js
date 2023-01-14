@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { format } from 'date-fns'
 
 import Likes from '../Likes'
+import elementsRoutes from '../../routes'
 
 import styles from './ArticleInfo.module.scss'
 
@@ -11,11 +12,12 @@ function ArticleInfo({ title, slug, tagList, authorImage, authorUsername, favori
   const { slug: slugParam } = useParams()
 
   const isEnoughPage = !!slugParam
+
   return (
     <div className={styles.info}>
       <div>
         <div className={styles.row}>
-          <Link to={`/articles/${slug}`} className={styles.infoHead}>
+          <Link to={`${elementsRoutes.ARTICLES}/${slug}`} className={styles.infoHead}>
             {!isEnoughPage && title?.length > 110 ? `${title.slice(0, 100)}...` : title}
           </Link>
           <div className={styles.likes}>

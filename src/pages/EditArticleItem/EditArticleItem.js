@@ -11,7 +11,7 @@ import elementsRoutes from '../../routes'
 
 function EditArticleItem() {
   const { slug } = useParams()
-  const { data: fetchedArticle, isLoading: articleLoading } = articleApi.useGetArticleQuery({
+  const { data: fetchedArticles, isLoading: articleLoading } = articleApi.useGetArticleQuery({
     slug,
   })
 
@@ -35,11 +35,11 @@ function EditArticleItem() {
     }
   }, [editError])
 
-  const onSubmit = (article) => {
+  const submitHandler = (article) => {
     if (slug) editArticleRequest({ body: article, slug })
   }
 
-  if (articleLoading || !fetchedArticle) {
+  if (articleLoading || !fetchedArticles) {
     return (
       <div>
         <Spin size='large' />
@@ -47,7 +47,7 @@ function EditArticleItem() {
     )
   }
 
-  if (username !== fetchedArticle.article.author.username) {
+  if (username !== fetchedArticles.article.author.username) {
     return (
       <div className='page-error'>
         <p>You cannot edit other articles!</p>
@@ -60,12 +60,12 @@ function EditArticleItem() {
       <div className={styles.article}>
         <h3 className={styles.title}>Edit article</h3>
         <ArticleForm
-          submitHandler={onSubmit}
+          submitHandler={submitHandler}
           fetchedArticles={{
-            title: fetchedArticle.article.title,
-            description: fetchedArticle.article.description,
-            text: fetchedArticle.article.body,
-            tagList: fetchedArticle.article.tagList.map((tag) => ({ name: tag })),
+            title: fetchedArticles.article.title,
+            description: fetchedArticles.article.description,
+            text: fetchedArticles.article.body,
+            tagList: fetchedArticles.article.tagList.map((tag) => ({ name: tag })),
           }}
         />
       </div>

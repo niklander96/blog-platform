@@ -34,7 +34,10 @@ function ArticleList() {
       ) : (
         <>
           {data?.articles.map((article) => (
-            <Article article={article} key={`${article.author} ${article.slug} ${article.tagList}`} />
+            <Article
+              article={article}
+              key={`${article.author} ${article.updatedAt} ${article.slug} ${article.tagList.join()}`}
+            />
           ))}
           {data?.articles?.length && (
             <div className={styles.pagination}>

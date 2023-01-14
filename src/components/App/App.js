@@ -17,6 +17,7 @@ import Profile from '../../pages/Profile'
 import CreateArticleItem from '../../pages/CreateArticleItem'
 import EditArticleItem from '../../pages/EditArticleItem/EditArticleItem'
 import elementsRoutes from '../../routes'
+import LoginnedRoutes from '../../utils/LoginnedRoutes'
 
 function App() {
   const [getUser] = userApi.useLazyGetUserQuery()
@@ -31,7 +32,8 @@ function App() {
           if (data) dispatch(setUser({ username, email, token, image: image || null }))
         })
     }
-  })
+  }, [])
+
   return (
     <div className='App'>
       <ToastContainer
@@ -48,14 +50,16 @@ function App() {
       />
       <Header />
       <Routes>
+        <Route element={<LoginnedRoutes />}>
+          <Route path={`${elementsRoutes.PROFILE}`} element={<Profile />} />
+          <Route path={`${elementsRoutes.CREATE_ARTICLE}`} element={<CreateArticleItem />} />
+          <Route path={`${elementsRoutes.ARTICLES}/:slug${elementsRoutes.EDIT}`} element={<EditArticleItem />} />
+        </Route>
         <Route path={`${elementsRoutes.HOME}`} element={<ArticleList />} />
         <Route path={`${elementsRoutes.ARTICLES}`} element={<ArticleList />} />
         <Route path={`${elementsRoutes.ARTICLES}/:slug`} element={<ArticleItem />} />
         <Route path={`${elementsRoutes.SIGN_IN}`} element={<Login />} />
         <Route path={`${elementsRoutes.SIGN_UP}`} element={<Registration />} />
-        <Route path={`${elementsRoutes.PROFILE}`} element={<Profile />} />
-        <Route path={`${elementsRoutes.CREATE_ARTICLE}`} element={<CreateArticleItem />} />
-        <Route path={`${elementsRoutes.ARTICLES}/:slug${elementsRoutes.EDIT}`} element={<EditArticleItem />} />
       </Routes>
     </div>
   )

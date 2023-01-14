@@ -12,7 +12,7 @@ import '../../index.scss'
 import elementsRoutes from '../../routes'
 
 function CreateArticleItem() {
-  const [createArticle, { data, isSuccess, error }] = articleApi.useCreateArticleMutation()
+  const [createArticleRequest, { data, isSuccess, error }] = articleApi.useCreateArticleMutation()
 
   const navigate = useNavigate()
 
@@ -30,7 +30,7 @@ function CreateArticleItem() {
   }, [error])
 
   const submitHandler = (article) => {
-    createArticle(article)
+    createArticleRequest(article)
   }
 
   return (

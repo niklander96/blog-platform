@@ -10,10 +10,10 @@ const articleApi = apiBase.injectEndpoints({
         url: '/articles',
         params: { offset: (page - 1) * limit, limit },
       }),
-      providesTags: (result) =>
-        result?.articles
+      providesTags: (res) =>
+        res?.articles
           ? [
-              ...result.articles.map(({ slug }) => ({
+              ...res.articles.map(({ slug }) => ({
                 type: 'Articles',
                 id: slug,
               })),
@@ -26,7 +26,7 @@ const articleApi = apiBase.injectEndpoints({
         headers: { Authorization: `Bearer ${getToken()}` },
         url: `articles/${slug}`,
       }),
-      providesTags: ['ArticleInfo'],
+      providesTags: ['ArticleDetails'],
     }),
     createArticle: build.mutation({
       query: (body) => ({
@@ -35,7 +35,7 @@ const articleApi = apiBase.injectEndpoints({
         url: '/articles',
         body,
       }),
-      invalidatesTags: [{ type: 'Articles', id: 'LIST' }, 'ArticlesInfo'],
+      invalidatesTags: [{ type: 'Articles', id: 'LIST' }],
     }),
     deleteArticle: build.mutation({
       query: (slug) => ({
@@ -43,7 +43,7 @@ const articleApi = apiBase.injectEndpoints({
         method: 'DELETE',
         url: `/articles/${slug}`,
       }),
-      invalidatesTags: [{ type: 'Articles', id: 'LIST' }, 'ArticlesInfo'],
+      invalidatesTags: [{ type: 'Articles', id: 'LIST' }, 'ArticleDetails'],
     }),
     editArticle: build.mutation({
       query: ({ body, slug }) => ({
@@ -52,7 +52,7 @@ const articleApi = apiBase.injectEndpoints({
         url: `/articles/${slug}`,
         body,
       }),
-      invalidatesTags: [{ type: 'Articles', id: 'LIST' }, 'ArticlesInfo'],
+      invalidatesTags: [{ type: 'Articles', id: 'LIST' }, 'ArticleDetails'],
     }),
     likeArticle: build.mutation({
       query: (slug) => ({
@@ -60,7 +60,7 @@ const articleApi = apiBase.injectEndpoints({
         method: 'post',
         url: `/articles/${slug}/favorite`,
       }),
-      invalidatesTags: [{ type: 'Articles', id: 'LIST' }, 'ArticleInfo'],
+      invalidatesTags: [{ type: 'Articles', id: 'LIST' }, 'ArticleDetails'],
     }),
     removeLikeFromArticle: build.mutation({
       query: (slug) => ({
@@ -68,7 +68,7 @@ const articleApi = apiBase.injectEndpoints({
         method: 'delete',
         url: `/articles/${slug}/favorite`,
       }),
-      invalidatesTags: [{ type: 'Articles', id: 'LIST' }, 'ArticleInfo'],
+      invalidatesTags: [{ type: 'Articles', id: 'LIST' }, 'ArticleDetails'],
     }),
   }),
 })
