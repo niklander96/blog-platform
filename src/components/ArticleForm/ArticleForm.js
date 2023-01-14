@@ -66,7 +66,7 @@ function ArticleForm({ submitHandler, fetchedArticles }) {
         <textarea
           placeholder='Text'
           className={classNames(styles.textarea, { formInput: true, formInputError: errors.text })}
-          {...register('description', {
+          {...register('text', {
             required: 'Text is required',
           })}
         />
