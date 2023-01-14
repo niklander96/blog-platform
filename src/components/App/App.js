@@ -16,6 +16,7 @@ import Login from '../../pages/Login'
 import Profile from '../../pages/Profile'
 import CreateArticleItem from '../../pages/CreateArticleItem'
 import EditArticleItem from '../../pages/EditArticleItem/EditArticleItem'
+import elementsRoutes from '../../routes'
 
 function App() {
   const [getUser] = userApi.useLazyGetUserQuery()
@@ -47,14 +48,14 @@ function App() {
       />
       <Header />
       <Routes>
-        <Route path={'/'} element={<ArticleList />} />
-        <Route path={'/articles'} element={<ArticleList />} />
-        <Route path={'/articles/:slug'} element={<ArticleItem />} />
-        <Route path={'/sign-in'} element={<Login />} />
-        <Route path={'/sign-up'} element={<Registration />} />
-        <Route path={'/profile'} element={<Profile />} />
-        <Route path={'/create-article'} element={<CreateArticleItem />} />
-        <Route path={'/articles/:slug/edit'} element={<EditArticleItem />} />
+        <Route path={`${elementsRoutes.HOME}`} element={<ArticleList />} />
+        <Route path={`${elementsRoutes.ARTICLES}`} element={<ArticleList />} />
+        <Route path={`${elementsRoutes.ARTICLES}/:slug`} element={<ArticleItem />} />
+        <Route path={`${elementsRoutes.SIGN_IN}`} element={<Login />} />
+        <Route path={`${elementsRoutes.SIGN_UP}`} element={<Registration />} />
+        <Route path={`${elementsRoutes.PROFILE}`} element={<Profile />} />
+        <Route path={`${elementsRoutes.CREATE_ARTICLE}`} element={<CreateArticleItem />} />
+        <Route path={`${elementsRoutes.ARTICLES}/:slug${elementsRoutes.EDIT}`} element={<EditArticleItem />} />
       </Routes>
     </div>
   )

@@ -11,6 +11,7 @@ import { setToken } from '../../utils/getToken'
 import styles from '../Login/Login.module.scss'
 import '../../index.scss'
 import SubmitButton from '../../components/SubmitButton'
+import elementsRoutes from '../../routes'
 
 function Login() {
   const {
@@ -31,7 +32,7 @@ function Login() {
       toast.success('You have logged in')
       dispatch(setUser({ username, email, token, image }))
       setToken(token)
-      navigate('/')
+      navigate(`${elementsRoutes.HOME}`)
     }
   }, [isSuccess])
 
@@ -93,7 +94,7 @@ function Login() {
         </div>
         <p className={styles.dontHaveAccount}>
           Already tou have an account?{' '}
-          <Link to={'/sign-up'} className={styles.signUp}>
+          <Link to={`${elementsRoutes.SIGN_UP}`} className={styles.signUp}>
             Sign Up
           </Link>
         </p>

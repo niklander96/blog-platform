@@ -13,6 +13,8 @@ import SubmitButton from '../../components/SubmitButton'
 import styles from './Registration.module.scss'
 
 import '../../index.scss'
+// eslint-disable-next-line import/order
+import elementsRoutes from '../../routes'
 
 function Registration() {
   const {
@@ -34,7 +36,7 @@ function Registration() {
       toast.success('You have logged')
       dispatch(setUser({ username, email, token, image: null }))
       setToken(token)
-      navigate('/')
+      navigate(`${elementsRoutes.HOME}`)
     }
   }, [isSuccess])
 
@@ -154,7 +156,7 @@ function Registration() {
         </div>
         <p className={styles.haveAccount}>
           Already tou have an account?{' '}
-          <Link to={'/sign-in'} className={styles.signIn}>
+          <Link to={`${elementsRoutes.SIGN_IN}`} className={styles.signIn}>
             Sign In
           </Link>
         </p>

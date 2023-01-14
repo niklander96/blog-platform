@@ -6,7 +6,10 @@ import articleApi from '../../service/articleApi'
 import ArticleForm from '../../components/ArticleForm'
 
 import styles from './CreateArticleItem.module.scss'
+
 import '../../index.scss'
+// eslint-disable-next-line import/order
+import elementsRoutes from '../../routes'
 
 function CreateArticleItem() {
   const [createArticle, { data, isSuccess, error }] = articleApi.useCreateArticleMutation()
@@ -16,7 +19,7 @@ function CreateArticleItem() {
   useEffect(() => {
     if (isSuccess && data) {
       toast.success('Article has created!')
-      navigate('/')
+      navigate(`${elementsRoutes.HOME}`)
     }
   }, [isSuccess])
 

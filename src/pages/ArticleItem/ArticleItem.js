@@ -8,6 +8,7 @@ import classNames from 'classnames'
 
 import articleApi from '../../service/articleApi'
 import ArticleInfo from '../../components/ArticleInfo'
+import elementsRoutes from '../../routes'
 
 import styles from './ArticleItem.module.scss'
 
@@ -15,7 +16,7 @@ function ArticleItem() {
   const { slug } = useParams()
   const { data, isLoading, isError: notAvailable } = articleApi.useGetArticleQuery({ slug })
   const navigate = useNavigate()
-  const [deleteArticleRequest, { isSuccess, isError }] = articleApi.useDeleteArticleMutation()
+  const [deleteArticleRequest, { isSuccess, error }] = articleApi.useDeleteArticleMutation()
 
   const { username } = useSelector((selector) => selector.user)
   const { article } = data ?? {}
@@ -23,15 +24,15 @@ function ArticleItem() {
   useEffect(() => {
     if (isSuccess && data) {
       toast.success('Article was deleted successfully.')
-      navigate('/')
+      navigate(`${elementsRoutes.HOME}`)
     }
   }, [isSuccess])
 
   useEffect(() => {
-    if (isError) {
+    if (error) {
       toast.error('Article has not deleted.')
     }
-  }, [isError])
+  }, [error])
 
   const deleteArticle = () => {
     if (slug) deleteArticleRequest(slug)
@@ -72,7 +73,7 @@ function ArticleItem() {
                 >
                   <input type='button' value='Delete' className={classNames(styles.button, styles.buttonDelete)} />
                 </Popconfirm>
-                <Link to={`/articles/${slug}/edit`}>
+                <Link to={`${elementsRoutes.ARTICLES}/${slug}${elementsRoutes.EDIT}`}>
                   <input type='button' value='Edit' className={classNames(styles.button, styles.buttonEdit)} />
                 </Link>
               </div>

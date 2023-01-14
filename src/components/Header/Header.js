@@ -5,6 +5,7 @@ import { toast } from 'react-toastify'
 
 import { removeToken } from '../../utils/getToken'
 import { logOut } from '../../store/usersSlice'
+import elementsRoutes from '../../routes'
 
 import styles from './Header.module.scss'
 
@@ -16,18 +17,18 @@ function Header() {
   const [errorImageLoading, setErrorImageLoading] = useState(false)
   return (
     <div className={styles.header}>
-      <Link className={styles.head} to={`/articles?page=${searchParams.get('page') || 1}`}>
+      <Link className={styles.head} to={`${elementsRoutes.ARTICLES}?page=${searchParams.get('page') || 1}`}>
         Realworld Blog
       </Link>
       <div className={styles.rightSide}>
         {token ? (
           <>
-            <Link className={styles.createArticleButton} to={'/create-article'}>
+            <Link className={styles.createArticleButton} to={`${elementsRoutes.CREATE_ARTICLE}`}>
               Create article
             </Link>
 
             <div className={styles.profile}>
-              <Link className={styles.profileUsername} to={'/profile'}>
+              <Link className={styles.profileUsername} to={`${elementsRoutes.PROFILE}`}>
                 {username}
                 <img
                   src={
@@ -56,10 +57,10 @@ function Header() {
           </>
         ) : (
           <>
-            <Link className={styles.signInButton} to={'/sign-in'}>
+            <Link className={styles.signInButton} to={`${elementsRoutes.SIGN_IN}`}>
               Sign In
             </Link>
-            <Link className={styles.signUpButton} to={'/sign-up'}>
+            <Link className={styles.signUpButton} to={`${elementsRoutes.SIGN_UP}`}>
               Sign Up
             </Link>
           </>

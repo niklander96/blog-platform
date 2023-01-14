@@ -2,6 +2,7 @@ import { useForm, useFieldArray } from 'react-hook-form'
 import classNames from 'classnames'
 
 import styles from './ArticleForm.module.scss'
+import '../../index.scss'
 
 function ArticleForm({ submitHandler, fetchedArticles }) {
   const {
@@ -70,7 +71,7 @@ function ArticleForm({ submitHandler, fetchedArticles }) {
           })}
         />
       </label>
-      <p className='fieldError'>{errors?.text?.message?.toString()}</p>
+      <p className='fieldError'>{errors.text?.message?.toString()}</p>
       <label className='label'>Tags</label>
       {fields.length === 0 && (
         <div>
@@ -99,7 +100,7 @@ function ArticleForm({ submitHandler, fetchedArticles }) {
                   !getValues()
                     .tagList.map((tagObject) => tagObject.name)
                     .filter((_, currentTagIndex) => fieldIndex !== currentTagIndex)
-                    .includes(tagValue) || 'Tag mut be unique!',
+                    .includes(tagValue) || 'Tag must be unique!',
               })}
               className={classNames(styles.tagInput, {
                 formInput: true,

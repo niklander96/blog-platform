@@ -7,6 +7,7 @@ import { Spin } from 'antd'
 import articleApi from '../../service/articleApi'
 import styles from '../CreateArticleItem/CreateArticleItem.module.scss'
 import ArticleForm from '../../components/ArticleForm'
+import elementsRoutes from '../../routes'
 
 function EditArticleItem() {
   const { slug } = useParams()
@@ -23,8 +24,8 @@ function EditArticleItem() {
 
   useEffect(() => {
     if (isArticleCreated && data) {
-      toast.success('Article is edited!')
-      navigate('/')
+      toast.success('Article has edited!')
+      navigate(`${elementsRoutes.HOME}`)
     }
   }, [isArticleCreated])
 
