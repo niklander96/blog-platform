@@ -1,7 +1,7 @@
+import { useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { Popconfirm, Spin } from 'antd'
-import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { useSelector } from 'react-redux'
 import classNames from 'classnames'
@@ -80,7 +80,7 @@ function ArticleItem() {
             )}
           </div>
           <div className={styles.fullDescription}>
-            <ReactMarkdown className={styles.articleBody}>{article.body}</ReactMarkdown>
+            <ReactMarkdown className={styles.body}>{article.body}</ReactMarkdown>
           </div>
         </div>
       )}
