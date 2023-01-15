@@ -2,71 +2,72 @@
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
-
-  .row {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .likes {
-    padding-top: 2px;
-  }
-
-  .infoHead {
-    text-decoration-line: none;
-    font-family: Inter, sans-serif;
-    font-size: 20px;
-    line-height: 28px;
-    color: #1890FF;
-    overflow-wrap: anywhere;
-  }
-
-  .infoHead:hover {
-    opacity: 0.6;
-  }
-
-  .tags {
-    padding-top: 4px;
-  }
-
-  .tag {
-    font-family: Inter, sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 15px;
-    color: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    border-radius: 2px;
-    padding: 1px 5px;
-    margin-right: 8px;
-    overflow-wrap: anywhere;
-  }
-
-  .userInfo {
-    display: flex;
-    align-items: flex-end;
-    text-align: right;
-
-    .userImage {
-      width: 46px;
-      height: 46px;
-      margin-left: 12px;
-      border-radius: 50%;
-    }
-
-    .userName {
-      font-size: 18px;
-      line-height: 28px;
-      color: rgba(0, 0, 0, 0.85);
-    }
-
-    .createdDate {
-      font-size: 12px;
-      line-height: 22px;
-      color: rgba(0, 0, 0, 0.5);
-    }
-  }
-
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.likes {
+  padding-top: 2px;
+}
+
+.infoHead {
+  text-decoration-line: none;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  color: #1890FF;
+  overflow-wrap: anywhere;
+}
+
+.infoHead:hover {
+  opacity: 0.6;
+}
+
+.tags {
+  padding-top: 4px;
+}
+
+.tag {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  padding: 1px 5px;
+  margin-right: 8px;
+  overflow-wrap: anywhere;
+}
+
+.userInfo {
+  display: flex;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.userImage {
+  width: 46px;
+  height: 46px;
+  margin-left: 12px;
+  border-radius: 50%;
+}
+
+.userName {
+  font-size: 18px;
+  line-height: 28px;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.createdDate {
+  font-size: 12px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+
