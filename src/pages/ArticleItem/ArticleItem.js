@@ -80,7 +80,7 @@ function ArticleItem() {
             )}
           </div>
           <div className={styles.fullDescription}>
-            <ReactMarkdown className={styles.body}>{`${article.body}`}</ReactMarkdown>
+            <ReactMarkdown className={styles.body}>{article.body}</ReactMarkdown>
           </div>
         </div>
       )}

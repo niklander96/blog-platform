@@ -27,7 +27,7 @@ function Registration() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  let [registrationRequest, { data, isSuccess, error: authError }] = userApi.useRegistrationMutation()
+  const [registrationRequest, { data, isSuccess, error: authError }] = userApi.useRegistrationMutation()
 
   useEffect(() => {
     if (isSuccess && data) {

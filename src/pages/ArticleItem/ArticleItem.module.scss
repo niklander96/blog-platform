@@ -19,7 +19,6 @@
 .shortDescription {
   font-size: 14px;
   line-height: 22px;
-  margin: 19px 0;
   color: rgba(0, 0, 0, 0.5);
   max-width: 730px;
 }
@@ -27,11 +26,15 @@
 .fullDescription ol,
 .fullDescription ul {
   padding-left: 30px;
+
 }
 
 .body,
 .shortDescription {
   overflow-wrap: anywhere;
+  font-size: 14px;
+  line-height: 22px;
+
 }
 
 .button {

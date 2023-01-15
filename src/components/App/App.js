@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { ToastContainer } from 'react-toastify'
 
+import 'antd/dist/reset.css'
 import 'react-toastify/dist/ReactToastify.min.css'
 import ArticleList from '../../pages/ArticleList'
 import '../../index.scss'
